@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,10 @@
     <link rel="stylesheet" href="css/tailwind.css">
     <script src="https://kit.fontawesome.com/8d3af4ce61.js" crossorigin="anonymous"></script>
 </head>
+
 <body class="bg-rose-50 font-dancingScript font-semibold">
     <header class="sticky top-0">
-        <nav class="bg-rose-200 px-4 flex items-center justify-end text-3xl">
+        <nav class="bg-rose-200 px-4 flex flex-wrap items-center justify-end text-3xl">
             <div class="mr-auto">
                 <a href="index.html" aria-label="Click to go to homepage">
                     <img src="../images/Orinoco logo.png" alt="Orinoco Logo" class="h-16">
@@ -25,21 +27,74 @@
                 <i class="far fa-user"></i>
             </div>
             <div class="mx-5 hidden md:inline text-violet-600 hover:text-rose-900">
-                <a href="cart.html">Basket</a>
-                <i class="fas fa-shopping-basket"></i>
+                <a href="cart.html">
+                    Basket
+                    <i class="fas fa-shopping-basket"></i>
+                </a>
             </div>
             <div class="md:hidden">
                 <button type="button"
-                    class="text-violet-600 h-8 w-8 hover:text-rose-900 focus:text-violet-600 focus:outline-none">
-                    <i class="fas fa-bars fa-2x"></i>
+                    class="text-violet-600 h-8 w-8 hover:text-rose-900 focus:text-violet-600 focus:outline-none" id="menuBtn">
+                    <i class="fas fa-bars"></i>
                 </button>
+            </div>
+            <div class="flex flex-col flex-wrap hidden w-screen " id="menuLinks">
+                <div class="mx-5 text-violet-600 hover:text-rose-900">
+                    Search
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="mx-5  text-violet-600 hover:text-rose-900">
+                    Login
+                    <i class="far fa-user"></i>
+                </div>
+                <div class="mx-5  text-violet-600 hover:text-rose-900">
+                    <a href="cart.html">
+                        Basket
+                        <i class="fas fa-shopping-basket"></i>
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
-    <main>
-        <div>Cart</div>
+    <main class="text-violet-600">
+        <section class="flex justify-center p-3">
+            <h2 class="text-5xl m-5">Your Basket</h2>
+        </section>
+        <section class="flex flex-col flex-wrap w-3/4 m-auto">
+            <div class="bg-violet-100 flex justify-between p-4 text-xl">
+                <div class="md:w-3/7 lg:w-5/7">Item</div>
+                <div class="text-center hidden md:inline-block md:w-2/7 lg:w-1/7">Quantity</div>
+                <div class="text-center hidden md:inline-block md:w-2/7 lg:w-1/7">Subtotal</div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center justify-between p-4 h-52 border-2 border-violet-100">
+                <div class="md:w-3/7 lg:w-5/7 p-2 md:p-0">Product</div>
+                <div class="text-center md:w-2/7 lg:w-1/7 p-2 md:p-0 border-l-2 border-r-2 border-violet-200 h-10">
+                    <div>
+                        <input type="button" value="-" name="remove-item" class="w-7 h-7 m-0 bg-violet-100 focus:outline-none" id="removeItem">
+                        <input type="text" value="0" name="item-quantity" class="w-7 h-7 m-0 focus:outline-none text-center" id="itemQty">
+                        <input type="button" value="+" name="add-item" class="w-7 h-7 m-0 bg-violet-100 focus:outline-none" id="addItem">
+                    </div>
+                    <i class="far fa-trash-alt p-2"></i>
+                </div>
+                <div class="text-center md:w-2/7 lg:w-1/7 p-3 md:p-0">Price</div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center justify-between p-4 ">
+                <div class="w-4/7">
+                    <span class="hover:text-rose-900 underline">
+                        <a href="index.html">Continue Shopping</a>
+                    </span>
+                </div>
+                <div class="text-2xl font-bold">Total</div>
+                <div class="text-center text-lg w-1/7">Total Price</div>
+            </div>
+        </section>
+        <section class="flex justify-center p-7 mb-7">
+            <a href="confirmation.html" class="w-1/2 md:w-1/4 p-2 text-4xl text-center text-violet-100 bg-rose-800 rounded-3xl hover:bg-rose-500 focus:outline-none">
+                Checkout
+            </a>
+        </section>
     </main>
-    <footer class="bg-rose-200 flex flex-col items-center md:items-start md:flex-row">
+    <footer class="bg-rose-200 flex flex-col items-center md:items-start md:flex-row py-4">
         <div class="md:w-1/4 text-center">
             <h2 class="text-3xl text-violet-600">Company</h2>
             <ul class="text-violet-400 text-lg">
@@ -100,5 +155,8 @@
             </ul>
         </div>
     </footer>
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
 </body>
+
 </html>

@@ -11,8 +11,8 @@
 </head>
 
 <body class="bg-rose-50 font-dancingScript font-semibold">
-    <header class="sticky top-0">
-        <nav class="bg-rose-200 px-4 flex items-center justify-end text-3xl">
+    <header class="sticky top-0 z-50">
+        <nav class="bg-rose-200 px-4 flex flex-wrap items-center justify-end text-3xl">
             <div class="mr-auto">
                 <a href="index.html" aria-label="Click to go to homepage">
                     <img src="../images/Orinoco logo.png" alt="Orinoco Logo" class="h-16">
@@ -27,14 +27,32 @@
                 <i class="far fa-user"></i>
             </div>
             <div class="mx-5 hidden md:inline text-violet-600 hover:text-rose-900">
-                <a href="cart.html">Basket</a>
-                <i class="fas fa-shopping-basket"></i>
+                <a href="cart.html">
+                    Basket
+                    <i class="fas fa-shopping-basket"></i>
+                </a>
             </div>
             <div class="md:hidden">
                 <button type="button"
-                    class="text-violet-600 h-8 w-8 hover:text-rose-900 focus:text-violet-600 focus:outline-none">
-                    <i class="fas fa-bars fa-2x"></i>
+                    class="text-violet-600 h-8 w-8 hover:text-rose-900 focus:text-violet-600 focus:outline-none" id="menuBtn">
+                    <i class="fas fa-bars"></i>
                 </button>
+            </div>
+            <div class="flex flex-col flex-wrap hidden w-screen " id="menuLinks">
+                <div class="mx-5 text-violet-600 hover:text-rose-900">
+                    Search
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="mx-5  text-violet-600 hover:text-rose-900">
+                    Login
+                    <i class="far fa-user"></i>
+                </div>
+                <div class="mx-5  text-violet-600 hover:text-rose-900">
+                    <a href="cart.html">
+                        Basket
+                        <i class="fas fa-shopping-basket"></i>
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
@@ -45,8 +63,9 @@
         </section>
         <section class="my-5">
             <h2 class="text-violet-600 text-4xl m-10">Browse Our Teddies</h2>
-            <div class="flex justify-around flex-wrap px-10 text-violet-800">
-                <div class="my-3 w-2/7 rounded-2xl bg-violet-100">
+            <div class="flex flex-col md:flex-row justify-around flex-wrap px-10 text-violet-800">
+                <div
+                    class="my-3 mb-5 md:w-2/5 lg:w-2/7 rounded-2xl bg-violet-100 transform duration-500 ease-in-out hover:-translate-y-1 hover:scale-110">
                     <a href="product.html">
                         <img src="../images/teddy_1.jpg" alt="" class="h-72 rounded-t-2xl">
                         <div class="p-4 flex justify-evenly">
@@ -55,7 +74,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="my-3 w-2/7 rounded-2xl bg-violet-100">
+                <div
+                    class="my-3 mb-5 md:w-2/5 lg:w-2/7 rounded-2xl bg-violet-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                     <a href="product.html">
                         <img src="../images/teddy_2.jpg" alt="" class="h-72 rounded-t-2xl">
                         <div class="p-4 flex justify-evenly">
@@ -64,7 +84,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="my-3 w-2/7 rounded-2xl bg-violet-100">
+                <div
+                    class="my-3 mb-5 md:w-2/5 lg:w-2/7 rounded-2xl bg-violet-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                     <a href="product.html">
                         <img src="../images/teddy_3.jpg" alt="" class="h-72 rounded-t-2xl">
                         <div class="p-4 flex justify-evenly">
@@ -73,7 +94,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="my-3 w-2/7 rounded-2xl bg-violet-100">
+                <div
+                    class="my-3 mb-5 md:w-2/5 lg:w-2/7 rounded-2xl bg-violet-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                     <a href="product.html">
                         <img src="../images/teddy_1.jpg" alt="" class="h-72 rounded-t-2xl">
                         <div class="p-4 flex justify-evenly">
@@ -82,7 +104,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="my-3 w-2/7 rounded-2xl bg-violet-100">
+                <div
+                    class="my-3 mb-5 md:w-2/5 lg:w-2/7 rounded-2xl bg-violet-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                     <a href="product.html">
                         <img src="../images/teddy_2.jpg" alt="" class="h-72 rounded-t-2xl">
                         <div class="p-4 flex justify-evenly">
@@ -91,7 +114,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="my-3 w-2/7 rounded-2xl bg-violet-100">
+                <div
+                    class="my-3 mb-5 md:w-2/5 lg:w-2/7 rounded-2xl bg-violet-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                     <a href="product.html">
                         <img src="../images/teddy_3.jpg" alt="" class="h-72 rounded-t-2xl">
                         <div class="p-4 flex justify-evenly">
@@ -164,6 +188,7 @@
             </ul>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
