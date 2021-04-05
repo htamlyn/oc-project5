@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orinoco - cart page demo</title>
+    <link rel="stylesheet" href="css/tailwind.css">
+    <script src="https://kit.fontawesome.com/8d3af4ce61.js" crossorigin="anonymous"></script>
+    
+</head>
+
+<body class=" font-dancingScript font-semibold">
+    <header class="sticky top-0">
+        <nav class="bg-rose-200 px-4 flex flex-wrap items-center justify-end text-3xl">
+            <div class="mr-auto">
+                <a href="index.html" aria-label="Click to go to homepage">
+                    <img src="../images/Orinoco logo.png" alt="Orinoco Logo" class="h-16">
+                </a>
+            </div>
+            <div class="mx-5 hidden md:inline text-violet-600 hover:text-rose-900">
+                Search
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="mx-5 hidden md:inline text-violet-600 hover:text-rose-900">
+                Login
+                <i class="far fa-user"></i>
+            </div>
+            <div class="mx-5 hidden md:inline text-violet-600 hover:text-rose-900">
+                <a href="cart.html">
+                    Basket
+                    <i class="fas fa-shopping-basket"></i>
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button type="button"
+                    class="text-violet-600 h-8 w-8 hover:text-rose-900 focus:text-violet-600 focus:outline-none" id="menuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="flex-col flex-wrap hidden w-screen " id="menuLinks">
+                <div class="mx-5 text-violet-600 hover:text-rose-900">
+                    Search
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="mx-5  text-violet-600 hover:text-rose-900">
+                    Login
+                    <i class="far fa-user"></i>
+                </div>
+                <div class="mx-5  text-violet-600 hover:text-rose-900">
+                    <a href="cart.html">
+                        Basket
+                        <i class="fas fa-shopping-basket"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <button id="test">test button</button>
+    </body>
+    <script src="product.js"></script>
+    </html>
