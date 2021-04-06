@@ -8,7 +8,7 @@
     <title>Orinoco - cart page demo</title>
     <link rel="stylesheet" href="css/tailwind.css">
     <script src="https://kit.fontawesome.com/8d3af4ce61.js" crossorigin="anonymous"></script>
-    
+
 </head>
 
 <body class=" font-dancingScript font-semibold">
@@ -35,7 +35,8 @@
             </div>
             <div class="md:hidden">
                 <button type="button"
-                    class="text-violet-600 h-8 w-8 hover:text-rose-900 focus:text-violet-600 focus:outline-none" id="menuBtn">
+                    class="text-violet-600 h-8 w-8 hover:text-rose-900 focus:text-violet-600 focus:outline-none"
+                    id="menuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -59,6 +60,36 @@
     </header>
 
     <button id="test">test button</button>
-    </body>
-    <script src="product.js"></script>
-    </html>
+    <section class="flex flex-col md:flex-row flex-wrap">
+        <div class="md:w-2/3" id="imgContain">
+        </div>
+        <div class="md:w-1/3 flex flex-col text-xl p-5 ">
+            <div class="flex align-middle" id="productInfoContain">
+            </div>
+            <!-- <form class="flex flex-wrap">
+                <label for="select color" class="w-2/4 my-5">Select Colour:</label>
+                <select id="select color" name="select color" class="w-2/4 my-5">
+                    <option value=""></option>
+                    <option value="lightBrown">Light Brown</option>
+                    <option value="darkBrown">Dark Brown</option>
+                    <option value="beige">Beige</option>
+                    <option value="black">Black</option>
+                </select>
+                <label for="select fur" class="w-2/4 my-5">Select Fur Type:</label>
+                <select id="select fur" name="select fur" class="w-2/4 my-5">
+                    <option value=""></option>
+                    <option value="smooth">Smooth</option>
+                    <option value="curly">Curly</option>
+                    <option value="extraFluffy">Extra Fluffy</option>
+                </select>
+                <label for="quantity" class="w-2/4 my-5">Quantity</label>
+                <input type="number" id="number" name="number" min="0" class="w-2/4 my-5">
+            </form> -->
+            <button type="button" class="mt-6 w-3/4 p-2 text-3xl text-violet-100 bg-rose-800 rounded-3xl hover:bg-rose-500 focus:outline-none">Add to Basket</button>
+        </div>
+    </section>
+
+</body>
+<script src="product.js"></script>
+
+</html>

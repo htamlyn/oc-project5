@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orinoco - home page demo</title>
+    <title>Orinoco - product page demo</title>
     <link rel="stylesheet" href="css/tailwind.css">
-    <script src="https://kit.fontawesome.com/8d3af4ce61.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8d3af4ce61.js" crossorigin="anonymous"></script>   
 </head>
 
 <body class="bg-rose-50 font-dancingScript font-semibold">
-    <header class="sticky top-0 z-50">
+    <header class="sticky top-0">
         <nav class="bg-rose-200 px-4 flex flex-wrap items-center justify-end text-3xl">
             <div class="mr-auto">
                 <a href="index.html" aria-label="Click to go to homepage">
@@ -56,65 +56,30 @@
             </div>
         </nav>
     </header>
-    <main>
-        <section class="">
-            <h1 class="text-8xl text-violet-600 m-10 text-center">Custom Teddy Store</h1>
-            <img src="../images/teddy_5.jpg" alt="A teddy sat on a bed looking out of a window" class="">
-        </section>
-        <section class="my-5">
-            <h2 class="text-violet-600 text-4xl m-10">Browse Our Teddies</h2>
-            <div class="flex flex-col md:flex-row justify-around flex-wrap px-10 text-violet-800">
-                <div
-                    class="my-3 mb-5 md:w-2/5 lg:w-2/7 rounded-2xl bg-violet-100 transform duration-500 ease-in-out hover:-translate-y-1 hover:scale-110">
-                    <a href="product1.html">
-                        <img src="../images/teddy_1.jpg" alt="" class="h-72 rounded-t-2xl">
-                        <div class="p-4 flex justify-evenly">
-                            <span class="text-2xl" id="product1Name"></span>
-                            <span class="text-lg">£#.##</span>
-                        </div>
-                    </a>
-                </div>
-                <div
-                    class="my-3 mb-5 md:w-2/5 lg:w-2/7 rounded-2xl bg-violet-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                    <a href="product2.html">
-                        <img src="../images/teddy_2.jpg" alt="" class="h-72 rounded-t-2xl">
-                        <div class="p-4 flex justify-evenly">
-                            <span class="text-2xl" id="product2Name">Product 2</span>
-                            <span class="text-lg">£#.##</span>
-                        </div>
-                    </a>
-                </div>
-                <div
-                    class="my-3 mb-5 md:w-2/5 lg:w-2/7 rounded-2xl bg-violet-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                    <a href="product3.html">
-                        <img src="../images/teddy_3.jpg" alt="" class="h-72 rounded-t-2xl">
-                        <div class="p-4 flex justify-evenly">
-                            <span class="text-2xl">Product 3</span>
-                            <span class="text-lg">£#.##</span>
-                        </div>
-                    </a>
-                </div>
-                <div
-                    class="my-3 mb-5 md:w-2/5 lg:w-2/7 rounded-2xl bg-violet-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                    <a href="product4.html">
-                        <img src="../images/teddy_1.jpg" alt="" class="h-72 rounded-t-2xl">
-                        <div class="p-4 flex justify-evenly">
-                            <span class="text-2xl">Product 4</span>
-                            <span class="text-lg">£#.##</span>
-                        </div>
-                    </a>
-                </div>
-                <div
-                    class="my-3 mb-5 md:w-2/5 lg:w-2/7 rounded-2xl bg-violet-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                    <a href="product5.html">
-                        <img src="../images/teddy_2.jpg" alt="" class="h-72 rounded-t-2xl">
-                        <div class="p-4 flex justify-evenly">
-                            <span class="text-2xl">Product 5</span>
-                            <span class="text-lg">£#.##</span>
-                        </div>
-                    </a>
-                </div>
+    <main class="text-violet-600">
+        <section class="flex flex-col md:flex-row flex-wrap">
+            <div class="md:w-2/3">
+                <img src="" alt="A brown teddy with a slightly smaller brown teddy with a red heart on it's knee" id="productImage">
             </div>
+            <div class="md:w-1/3 flex flex-col text-xl p-5 ">
+                <div class="flex align-middle" id="productInfoContain">
+                    <h1 class="w-3/4 text-4xl" id="productName"></h1>
+                    <span class="w-1/4 text-2xl" id="productPrice"></span>
+                </div>
+                <form class="flex flex-wrap">
+                    <label for="select color" class="w-2/4 my-5">Select Colour:</label>
+                    <select id="select color" name="select color" class="w-2/4 my-5 bg-white">
+                        <option value=""></option>
+                    </select>
+                    <label for="quantity" class="w-2/4 my-5">Quantity</label>
+                    <input type="number" id="number" name="number" min="0" class="w-2/4 my-5">
+                </form>
+                <button type="button" class="mt-6 w-3/4 p-2 text-3xl text-violet-100 bg-rose-800 rounded-3xl hover:bg-rose-500 focus:outline-none">Add to Basket</button>
+            </div>
+        </section>
+        <section class="p-10">
+            <h2 class="text-4xl">Description</h2>
+            <p class="p-6" id="productDescription"></p>
         </section>
     </main>
     <footer class="bg-rose-200 flex flex-col items-center md:items-start md:flex-row py-4">
@@ -179,7 +144,6 @@
         </div>
     </footer>
     <script src="script.js"></script>
-    <script src="products.js"></script>
+    <script src="product3.js"></script>
 </body>
-
 </html>

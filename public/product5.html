@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orinoco - product page demo</title>
     <link rel="stylesheet" href="css/tailwind.css">
-    <script src="https://kit.fontawesome.com/8d3af4ce61.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8d3af4ce61.js" crossorigin="anonymous"></script>   
 </head>
 
 <body class="bg-rose-50 font-dancingScript font-semibold">
@@ -59,28 +59,17 @@
     <main class="text-violet-600">
         <section class="flex flex-col md:flex-row flex-wrap">
             <div class="md:w-2/3">
-                <img src="../images/teddy_1.jpg" alt="">
+                <img src="" alt="A teddy sat on a bed looking out of a window" id="productImage">
             </div>
             <div class="md:w-1/3 flex flex-col text-xl p-5 ">
-                <div class="flex align-middle">
-                    <h1 class="w-3/4 text-4xl">Product Name</h1>
-                    <span class="w-1/4 text-2xl">Price</span>
+                <div class="flex align-middle" id="productInfoContain">
+                    <h1 class="w-3/4 text-4xl" id="productName"></h1>
+                    <span class="w-1/4 text-2xl" id="productPrice"></span>
                 </div>
                 <form class="flex flex-wrap">
                     <label for="select color" class="w-2/4 my-5">Select Colour:</label>
-                    <select id="select color" name="select color" class="w-2/4 my-5">
+                    <select id="select color" name="select color" class="w-2/4 my-5 bg-white">
                         <option value=""></option>
-                        <option value="lightBrown">Light Brown</option>
-                        <option value="darkBrown">Dark Brown</option>
-                        <option value="beige">Beige</option>
-                        <option value="black">Black</option>
-                    </select>
-                    <label for="select fur" class="w-2/4 my-5">Select Fur Type:</label>
-                    <select id="select fur" name="select fur" class="w-2/4 my-5">
-                        <option value=""></option>
-                        <option value="smooth">Smooth</option>
-                        <option value="curly">Curly</option>
-                        <option value="extraFluffy">Extra Fluffy</option>
                     </select>
                     <label for="quantity" class="w-2/4 my-5">Quantity</label>
                     <input type="number" id="number" name="number" min="0" class="w-2/4 my-5">
@@ -90,11 +79,7 @@
         </section>
         <section class="p-10">
             <h2 class="text-4xl">Description</h2>
-            <p class="p-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aperiam dignissimos, aspernatur quasi iste est perferendis magnam eius error harum fugit iusto esse pariatur recusandae porro laborum, odio repellat vel!
-            Qui reiciendis ex error aspernatur aliquam unde voluptatem ullam exercitationem iure illum provident modi molestiae nisi numquam debitis iste vel maxime dignissimos, velit porro, voluptas distinctio? Sed sequi tempore exercitationem?
-            Repellat animi unde magnam, doloremque dolorem sit odio aut minus, sed magni debitis error accusamus nostrum fugit quam consequuntur distinctio iste autem saepe tenetur. Minima temporibus maxime quisquam nobis consequuntur.
-            Fuga tenetur, pariatur iusto soluta, dolor et nostrum labore, quibusdam reiciendis illo a? Ea quam expedita voluptates aspernatur earum vel porro distinctio quas non facere a, aliquam, quia inventore vero!
-            Debitis sit numquam dolor vel consectetur provident labore consequuntur commodi, pariatur velit non, quidem laudantium, in nesciunt accusamus cumque id earum. Maiores nam excepturi quos quam atque expedita dolor nobis?</p>
+            <p class="p-6" id="productDescription"></p>
         </section>
     </main>
     <footer class="bg-rose-200 flex flex-col items-center md:items-start md:flex-row py-4">
@@ -159,6 +144,6 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <script src="product5.js"></script>
 </body>
-
 </html>
