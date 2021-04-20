@@ -1,7 +1,7 @@
 const productNames = [document.querySelector('#product1Name'), document.querySelector('#product2Name'), document.querySelector('#product3Name'), document.querySelector('#product4Name'), document.querySelector('#product5Name')];
 const productPrices = [document.querySelector('#product1Price'), document.querySelector('#product2Price'), document.querySelector('#product3Price'), document.querySelector('#product4Price'), document.querySelector('#product5Price')];
 const productImages = [document.querySelector('#product1Image'), document.querySelector('#product2Image'), document.querySelector('#product3Image'), document.querySelector('#product4Image'), document.querySelector('#product5Image')];
-const productIds = [document.querySelector('#product1Id'), document.querySelector('#product2Id')];
+const productIds = [document.querySelector('#product1Id'), document.querySelector('#product2Id'), document.querySelector('#product3Id'), document.querySelector('#product4Id'), document.querySelector('#product5Id')];
 
 const populateProduct = async () => {
     try {
@@ -17,7 +17,6 @@ const populateProduct = async () => {
             images.push(item.imageUrl);
             ids.push(item._id);
         }
-        console.log(ids)
         productNames.forEach((product, index) => {
             let name = names[index];
             product.innerText = name;
@@ -32,8 +31,11 @@ const populateProduct = async () => {
         })
         productIds.forEach((product, index) => {
             let id = ids[index];
-            product.href = `product1.html/?id=${id}`;
-            console.log(product.value);
+            product.value = id;
+            product.addEventListener('click', () => {
+                console.log('clicked')
+                window.location.href = `product.html?id=${product.value}`
+            })
         })
     } catch (e) {
         console.log('error')
@@ -41,9 +43,3 @@ const populateProduct = async () => {
 }
 
 populateProduct();
-
-let product1 = document.getElementById('product1Id')
-product1.addEventListener('click', () => {
-    console.log('clicked');
-    window.location.href = "product.html/?id=1"
-})

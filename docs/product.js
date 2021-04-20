@@ -6,9 +6,13 @@ const productDescription = document.getElementById('productDescription');
 const productColour = document.getElementById('select color');
 const productId = document.getElementById('productId')
 
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const id = urlParams.get('id')
+
 const getProduct = async () => {
     try{
-        const res = await fetch("http://localhost:3000/api/teddies/5be9c8541c9d440000665243");
+        const res = await fetch(`http://localhost:3000/api/teddies/${id}`);
         const data = await res.json();
         console.log(data);
         productName.innerText = data.name;
@@ -29,5 +33,8 @@ const getProduct = async () => {
 }
 
 getProduct();
+
+
+
 
 

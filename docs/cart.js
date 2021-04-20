@@ -51,7 +51,7 @@ function createProductDiv() {
     newItemChoices.classList.add('md:w-3/7', 'lg:w-5/7', 'p-2', 'md:p-0')
     newItem.appendChild(newItemChoices);
     let newItemName = document.createElement('div');
-    newItemName.classList.add('itemName');
+    newItemName.classList.add('itemName', 'text-2xl');
     newItemChoices.appendChild(newItemName);
     let newItemId = document.createElement('span');
     newItemId.classList.add('hidden', 'itemId');
@@ -172,7 +172,7 @@ document.querySelectorAll('.deleteItem').forEach(btn => {
         }
         // Go through each item to find the one that matches the current selection and remove it
         for (let i = 0; i < parsedSelectedProduct.length; i++) {
-            if (btn.parentElement.previousElementSibling.firstChild.innerText === parsedSelectedProduct[i].name && btn.parentElement.previousElementSibling.firstChild.nextSibling.innerText === parsedSelectedProduct[i].color) {
+            if (btn.parentElement.previousElementSibling.firstChild.innerText === parsedSelectedProduct[i].name && btn.parentElement.previousElementSibling.firstChild.nextSibling.nextElementSibling.innerText === parsedSelectedProduct[i].color) {
                 parsedSelectedProduct.splice(i, 1);
                 let newSelectedProduct = [];
                 for (item of parsedSelectedProduct) {
@@ -209,7 +209,7 @@ document.querySelectorAll('.addItem').forEach(addItem => {
         for (item of parsedSelectedProduct) {
             // If the current selection matches an existing product
             let productUpdated = false;
-            if (addItem.parentElement.parentElement.previousElementSibling.firstChild.innerText == item.name && addItem.parentElement.parentElement.previousElementSibling.firstChild.nextElementSibling.innerText == item.color) {
+            if (addItem.parentElement.parentElement.previousElementSibling.firstChild.innerText == item.name && addItem.parentElement.parentElement.previousElementSibling.firstChild.nextElementSibling.nextElementSibling.innerText == item.color) {
                 // Update the items quantity by added the current selection
                 item.qty = parseInt(item.qty) + 1
                 productUpdated = true;
@@ -252,7 +252,7 @@ document.querySelectorAll('.removeItem').forEach(removeItem => {
             for (item of parsedSelectedProduct) {
                 // If the current selection matches an existing product
                 let productUpdated = false;
-                if (removeItem.parentElement.parentElement.previousElementSibling.firstChild.innerText == item.name && removeItem.parentElement.parentElement.previousElementSibling.firstChild.nextElementSibling.innerText == item.color) {
+                if (removeItem.parentElement.parentElement.previousElementSibling.firstChild.innerText == item.name && removeItem.parentElement.parentElement.previousElementSibling.firstChild.nextElementSibling.nextElementSibling.innerText == item.color) {
                     // Update the items quantity by added the current selection
                     item.qty = parseInt(item.qty) - 1
                     productUpdated = true;
