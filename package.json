@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "tw:build": "tailwindcss build ./src/css/tailwind.css -o ./public/css/tailwind.css",
-    "tw:prod": "NODE_ENV=production postcss build ./src/css/tailwind.css -o ./public/css/tailwind.css",
+    "tw:build": "tailwindcss build ./src/css/tailwind.css -o ./docs/css/tailwind.css",
+    "tw:prod": "NODE_ENV=production postcss build ./src/css/tailwind.css -o ./docs/css/tailwind.css",
     "tw:watch": "onchange 'tailwind.config.js' 'src/**/*.css' -- npm run tw:build"
   },
   "author": "",
