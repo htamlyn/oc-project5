@@ -26,15 +26,17 @@
                 Login
                 <i class="far fa-user"></i>
             </div>
-            <div class="mx-5 hidden md:inline text-violet-600 hover:text-rose-900">
+            <div class="relative mx-5 hidden md:inline text-violet-600 hover:text-rose-900">
                 <a href="cart.html">
                     Basket
                     <i class="fas fa-shopping-basket"></i>
                 </a>
+                <div class="hidden absolute top-5 left-24 bg-violet-600 border-violet-600 h-7 w-7 text-center rounded-full text-white text-lg" id="basketTotal"></div>
             </div>
             <div class="md:hidden">
                 <button type="button"
-                    class="text-violet-600 h-8 w-8 hover:text-rose-900 focus:text-violet-600 focus:outline-none" id="menuBtn">
+                    class="text-violet-600 h-8 w-8 hover:text-rose-900 focus:text-violet-600 focus:outline-none"
+                    id="menuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -47,11 +49,12 @@
                     Login
                     <i class="far fa-user"></i>
                 </div>
-                <div class="mx-5  text-violet-600 hover:text-rose-900">
+                <div class="relative mx-5  text-violet-600 hover:text-rose-900">
                     <a href="cart.html">
                         Basket
                         <i class="fas fa-shopping-basket"></i>
                     </a>
+                    <div class="hidden absolute top-5 left-24 bg-violet-600 border-violet-600 h-7 w-7 text-center rounded-full text-white text-lg"></div>
                 </div>
             </div>
         </nav>
@@ -66,17 +69,17 @@
             <div class="flex flex-col md:flex-row justify-around flex-wrap px-10 text-violet-800">
                 <div
                     class="my-3 mb-5 md:w-2/5 lg:w-2/7 rounded-2xl bg-violet-100 transform duration-500 ease-in-out hover:-translate-y-1 hover:scale-110">
-                    <a href="product1.html">
+                    <div class="cursor-pointer" id="product1Id">
                         <img src="" alt="" class="h-72 rounded-t-2xl" id="product1Image">
                         <div class="p-4 flex justify-evenly">
                             <span class="text-2xl" id="product1Name"></span>
                             <span class="text-lg" id="product1Price"></span>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 <div
                     class="my-3 mb-5 md:w-2/5 lg:w-2/7 rounded-2xl bg-violet-100 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                    <a href="product2.html">
+                    <a href="product2.html" id="product2Id">
                         <img src="" alt="" class="h-72 rounded-t-2xl" id="product2Image">
                         <div class="p-4 flex justify-evenly">
                             <span class="text-2xl" id="product2Name"></span>
