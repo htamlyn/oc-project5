@@ -8,6 +8,7 @@ const lastName = document.getElementById('lastName');
 const address = document.getElementById('address');
 const city = document.getElementById('city');
 const email = document.getElementById('email');
+const total = document.querySelector('#totalPrice');
 
 
 // Get and parse selected product options
@@ -275,7 +276,6 @@ document.querySelectorAll('.removeItem').forEach(removeItem => {
 
 // Function to Set Total Basket Price
 function setTotal() {
-    const total = document.querySelector('#totalPrice');
     let prices = document.querySelectorAll('.itemPrice');
     let pricesArr = Array.from(prices);
     let pricesTotals = [];
@@ -316,6 +316,32 @@ function warnEmail() {
     setTimeout(removeEmailWarn, 3000);
 }
 
+    async function postData(url = '', data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+let confirmationDetails = {
+    firstName: "",
+    lastName: "",
+    address: "",
+    city: "",
+    id: "",
+    price: total.innerText
+}
 
 // Confirm Order button
 confirmOrder.addEventListener('click', (e) => {
@@ -331,14 +357,30 @@ confirmOrder.addEventListener('click', (e) => {
         warnEmail();
     }
     let contactDetails = {
-        firstName: firstName.value,
-        lastName:  lastName.value,
-        address: address.value,
-        city: city.value,
-        email: email.value
+        contact: {
+            firstName: firstName.value,
+            lastName: lastName.value,
+            address: address.value,
+            city: city.value,
+            email: email.value,
+        },
+        products: [orderIds],
     }
     console.log(contactDetails);
     let jsonContact = JSON.stringify(contactDetails);
     console.log(jsonContact);
-    console.log(orderIds);
+    postData('http://localhost:3000/api/teddies/order', contactDetails)
+        .then(data => {
+            console.log(data); // JSON data parsed by `data.json()` call
+            confirmationId = data.orderId
+            console.log(confirmationId)
+            confirmationDetails.firstName = data.contact.firstName;
+            confirmationDetails.lastName = data.contact.lastName;
+            confirmationDetails.address = data.contact.address;
+            confirmationDetails.city = data.contact.city;
+            confirmationDetails.email = data.contact.email;
+            confirmationDetails.id = data.orderId;
+            window.location.href = `confirmation.html?confirmation=${confirmationId}`
+            return confirmationDetails
+        });
 })
