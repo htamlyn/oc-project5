@@ -3,7 +3,7 @@ const menuLinks = document.getElementById('menuLinks');
 const addToBasketBtn = document.getElementById('addItemBtn');
 const colorSelect = document.getElementById('select color');
 const qtySelect = document.getElementById('number');
-const basketTotal = document.getElementsByClassName('basketTotal');
+const basketTotal = document.getElementById('basketTotal');
 const warning = document.getElementById('warning');
 
 // Open and close hamburger

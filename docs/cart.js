@@ -368,24 +368,20 @@ confirmOrder.addEventListener('click', (e) => {
     }
     let contactName = firstName.value;
     localStorage.setItem('customerName', contactName);
-    try {
-        postData('http://localhost:3000/api/teddies/order', contactDetails)
-            .then(data => {
-                console.log(data); // JSON data parsed by `data.json()` call
-                confirmationId = data.orderId
-                console.log(confirmationId)
-                confirmationDetails.firstName = data.contact.firstName;
-                confirmationDetails.lastName = data.contact.lastName;
-                confirmationDetails.address = data.contact.address;
-                confirmationDetails.city = data.contact.city;
-                confirmationDetails.email = data.contact.email;
-                confirmationDetails.id = data.orderId;
-                window.location.href = `confirmation.html?confirmation=${confirmationId}`
-                return confirmationDetails
-            });
-    } catch(e) {
-        console.log('error')
-    }
+    postData('http://localhost:3000/api/teddies/order', contactDetails)
+        .then(data => {
+            console.log(data); // JSON data parsed by `data.json()` call
+            confirmationId = data.orderId
+            console.log(confirmationId)
+            confirmationDetails.firstName = data.contact.firstName;
+            confirmationDetails.lastName = data.contact.lastName;
+            confirmationDetails.address = data.contact.address;
+            confirmationDetails.city = data.contact.city;
+            confirmationDetails.email = data.contact.email;
+            confirmationDetails.id = data.orderId;
+            window.location.href = `confirmation.html?confirmation=${confirmationId}`
+            return confirmationDetails
+        });
     localStorage.removeItem('basketProduct');
 })
 
