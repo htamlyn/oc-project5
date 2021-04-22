@@ -9,6 +9,7 @@ const productId = document.getElementById('productId')
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
+console.log(id)
 
 const getProduct = async () => {
     try{

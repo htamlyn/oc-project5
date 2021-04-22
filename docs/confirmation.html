@@ -58,16 +58,18 @@
         </nav>
     </header>
     <main class="text-violet-600">
-        <section class="flex flex-col items-center m-10">
+        <section class="flex flex-col items-center text-center m-10">
             <h1 class="text-4xl">Order Confirmation</h1>
             <div class="text-xl m-3">
-                <p>Thankyou for your order!</p>
+                <p>Thankyou for your order <span id="orderName"></span>!</p>
             </div>
             <div class="text-xl m-3">
-                <p id="orderDetails">Order Details:</p>
+                <p>Your order cost is:</p>
+                <p id="orderCost"></p>
             </div>
             <div class="text-xl m-3">
                 <p>Your order number is:</p>
+                <p id="orderNumber"></p>
             </div>
         </section>
     </main>
@@ -133,7 +135,7 @@
         </div>
     </footer>
     <script src="script.js"></script>
-    <script src="cart.js"></script>
+    <script src="confirmation.js"></script>
 </body>
 
 </html>

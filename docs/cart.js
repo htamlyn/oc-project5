@@ -284,6 +284,8 @@ function setTotal() {
         pricesTotals.push(parseInt(price))
     }
     total.innerText = `$${pricesTotals.reduce((a, b) => a + b, 0)}`;
+    let currentTotal = total.innerText;
+    localStorage.setItem('orderTotal', currentTotal);
 }
 setTotal();
 
@@ -316,23 +318,21 @@ function warnEmail() {
     setTimeout(removeEmailWarn, 3000);
 }
 
-    async function postData(url = '', data = {}) {
-        // Default options are marked with *
-        const response = await fetch(url, {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors', // no-cors, *cors, same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin', // include, *same-origin, omit
-            headers: {
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            redirect: 'follow', // manual, *follow, error
-            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-            body: JSON.stringify(data) // body data type must match "Content-Type" header
-        });
-        return response.json(); // parses JSON response into native JavaScript objects
-    }
+async function postData(url = '', data = {}) {
+    const response = await fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify(data)
+    });
+    return response.json();
+}
 
 let confirmationDetails = {
     firstName: "",
@@ -366,21 +366,26 @@ confirmOrder.addEventListener('click', (e) => {
         },
         products: [orderIds],
     }
-    console.log(contactDetails);
-    let jsonContact = JSON.stringify(contactDetails);
-    console.log(jsonContact);
-    postData('http://localhost:3000/api/teddies/order', contactDetails)
-        .then(data => {
-            console.log(data); // JSON data parsed by `data.json()` call
-            confirmationId = data.orderId
-            console.log(confirmationId)
-            confirmationDetails.firstName = data.contact.firstName;
-            confirmationDetails.lastName = data.contact.lastName;
-            confirmationDetails.address = data.contact.address;
-            confirmationDetails.city = data.contact.city;
-            confirmationDetails.email = data.contact.email;
-            confirmationDetails.id = data.orderId;
-            window.location.href = `confirmation.html?confirmation=${confirmationId}`
-            return confirmationDetails
-        });
+    let contactName = firstName.value;
+    localStorage.setItem('customerName', contactName);
+    try {
+        postData('http://localhost:3000/api/teddies/order', contactDetails)
+            .then(data => {
+                console.log(data); // JSON data parsed by `data.json()` call
+                confirmationId = data.orderId
+                console.log(confirmationId)
+                confirmationDetails.firstName = data.contact.firstName;
+                confirmationDetails.lastName = data.contact.lastName;
+                confirmationDetails.address = data.contact.address;
+                confirmationDetails.city = data.contact.city;
+                confirmationDetails.email = data.contact.email;
+                confirmationDetails.id = data.orderId;
+                window.location.href = `confirmation.html?confirmation=${confirmationId}`
+                return confirmationDetails
+            });
+    } catch(e) {
+        console.log('error')
+    }
+    localStorage.removeItem('basketProduct');
 })
+
