@@ -6,7 +6,8 @@
   "scripts": {
     "tw:build": "tailwindcss build ./src/css/tailwind.css -o ./docs/css/tailwind.css",
     "tw:prod": "NODE_ENV=production postcss build ./src/css/tailwind.css -o ./docs/css/tailwind.css",
-    "tw:watch": "onchange 'tailwind.config.js' 'src/**/*.css' -- npm run tw:build"
+    "tw:watch": "onchange 'tailwind.config.js' 'src/**/*.css' -- npm run tw:build",
+    "test": "jasmine"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "autoprefixer": "^10.2.5",
     "cssnano": "^4.1.10",
+    "jasmine": "^3.7.0",
     "onchange": "^7.1.0",
     "postcss": "^8.2.8",
     "postcss-cli": "^8.3.1",
