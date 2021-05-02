@@ -8,10 +8,11 @@ let names = [];
 let prices = [];
 let images = [];
 let ids = [];
-const fetchProduct = async () => {
+const fetchProduct = async (fetch) => {
     try {
         const res = await fetch("http://localhost:3000/api/teddies/");
         const data = await res.json();
+        console.log(data)
         for (item of data) {
             names.push(item.name);
             prices.push(item.price / 100);
@@ -48,6 +49,4 @@ function populateProduct() {
     })
 }
 
-fetchProduct();
-
-module.exports.fetch = fetchProduct;
+fetchProduct(fetch);

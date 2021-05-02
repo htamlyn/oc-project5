@@ -318,6 +318,7 @@ function warnEmail() {
     setTimeout(removeEmailWarn, 3000);
 }
 
+// Async Post function to send contact information to server
 async function postData(url = '', data = {}) {
     const response = await fetch(url, {
         method: 'POST',
@@ -334,28 +335,22 @@ async function postData(url = '', data = {}) {
     return response.json();
 }
 
-let confirmationDetails = {
-    firstName: "",
-    lastName: "",
-    address: "",
-    city: "",
-    id: "",
-    price: total.innerText
-}
-
 // Confirm Order button
 confirmOrder.addEventListener('click', (e) => {
     e.preventDefault();
     let inputs = [firstName, lastName, address, city, email];
+    // Ensure all inputs are filled in
     for (input of inputs) {
         if (input.value === "") {
             addBorder(input);
         }
     }
+    // Ensure email is a valid email
     if (validateEmail(email.value) == false) {
         addBorder(email);
         warnEmail();
     }
+    // Set contact information for post request
     let contactDetails = {
         contact: {
             firstName: firstName.value,
@@ -366,21 +361,14 @@ confirmOrder.addEventListener('click', (e) => {
         },
         products: [orderIds],
     }
+    // Set local storage for confirmation page
     let contactName = firstName.value;
     localStorage.setItem('customerName', contactName);
+    // Post data to server for confirmation number
     postData('http://localhost:3000/api/teddies/order', contactDetails)
         .then(data => {
-            console.log(data); // JSON data parsed by `data.json()` call
             confirmationId = data.orderId
-            console.log(confirmationId)
-            confirmationDetails.firstName = data.contact.firstName;
-            confirmationDetails.lastName = data.contact.lastName;
-            confirmationDetails.address = data.contact.address;
-            confirmationDetails.city = data.contact.city;
-            confirmationDetails.email = data.contact.email;
-            confirmationDetails.id = data.orderId;
             window.location.href = `confirmation.html?confirmation=${confirmationId}`
-            return confirmationDetails
         });
     localStorage.removeItem('basketProduct');
 })

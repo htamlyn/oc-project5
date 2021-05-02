@@ -13,7 +13,7 @@ console.log(id)
 
 let data = {}
 
-const getProduct = async () => {
+const getProduct = async (fetch) => {
     try{
         const res = await fetch(`http://localhost:3000/api/teddies/${id}`);
         data = await res.json();
@@ -38,7 +38,7 @@ function displayProduct() {
     }
 }
 
-getProduct();
+getProduct(fetch);
 
 
 
