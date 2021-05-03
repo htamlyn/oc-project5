@@ -364,15 +364,22 @@ confirmOrder.addEventListener('click', (e) => {
         },
         products: [orderIds],
     }
+    // Ensure correct details have been filled in
+    let correctContactDetails = false;
+    if (contactDetails.contact.email !== "Not a valid email" && contactDetails.contact.firstName !== "" && contactDetails.contact.lastName !== "" && contactDetails.contact.address !== "" && contactDetails.contact.city !== "") {
+        correctContactDetails = true;
+    }
     // Set local storage for confirmation page
     let contactName = firstName.value;
     localStorage.setItem('customerName', contactName);
-    // Post data to server for confirmation number
-    postData('http://localhost:3000/api/teddies/order', contactDetails)
-        .then(data => {
-            confirmationId = data.orderId
-            window.location.href = `confirmation.html?confirmation=${confirmationId}`
-        });
-    localStorage.removeItem('basketProduct');
+    // If contact details are correct then post data to server for confirmation number
+    if (correctContactDetails == true) {
+        postData('http://localhost:3000/api/teddies/order', contactDetails)
+            .then(data => {
+                confirmationId = data.orderId
+                window.location.href = `confirmation.html?confirmation=${confirmationId}`
+            });
+            localStorage.removeItem('basketProduct');
+    }
 })
 
