@@ -12,14 +12,17 @@ const total = document.querySelector('#totalPrice');
 
 
 // Get and parse selected product options
-let selectedProduct = localStorage.getItem('basketProduct');
-selectedProduct = selectedProduct.replace(/},{/g, "},,{");
-selectedProduct = selectedProduct ? selectedProduct.split(',,') : [];
 let parsedSelectedProduct = []
-for (item of selectedProduct) {
-    let parsedItem = JSON.parse(item);
-    parsedSelectedProduct.push(parsedItem);
+function parseProduct() {
+    let selectedProduct = localStorage.getItem('basketProduct');
+    selectedProduct = selectedProduct.replace(/},{/g, "},,{");
+    selectedProduct = selectedProduct ? selectedProduct.split(',,') : [];
+    for (item of selectedProduct) {
+        let parsedItem = JSON.parse(item);
+        parsedSelectedProduct.push(parsedItem);
+    }
 }
+parseProduct();
 
 // Create Arrays from the object information
 let basketNames = [];
