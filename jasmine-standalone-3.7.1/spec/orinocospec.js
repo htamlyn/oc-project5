@@ -7,8 +7,7 @@ it("calls fetchProduct to get product information",()=> {
         ismockApiCalled = true
     }
     fetchProduct(mockApiCall).then(result => {
-      expect(ismockApiCalled).toBe(true)
-
+      expect(ismockApiCalled).toBe(true);
     })
   })
 
